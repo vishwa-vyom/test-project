@@ -35,3 +35,7 @@
 8. PDFCard service will hash search in database to find the datashare URL to the requested RID. But this step is optional if the datashare URL can be formed using the RID and other details without connecting to database which can help with performance improvement. 
 9. Request will be sent to datashare service to download the PDF card file
 10. The PDF file will be streamed back to the resident UI to complete the flow
+
+## Admin Service - PDF Card Download flow :
+
+TBD
