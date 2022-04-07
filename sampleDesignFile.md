@@ -38,4 +38,15 @@
 
 ## Admin Service - PDF Card Download flow :
 
-TBD
+<p align="center">
+  <img  src="https://user-images.githubusercontent.com/9315119/162190234-3cf64b29-1cb9-4892-94d8-114e241fac93.png">
+</p>
+
+1. Admin will login to the Admin UI, navigate to PDF card download page and will provide the RID in the page for admin UI to send request to "GET Applicant Verfication details" API of admin service
+2. Admin service will call the idrepo idvid API to get the date of birth and photograph of the applicant linked to the RID
+3. If RID is valid and if details are available, admin service will respond to the Admin UI with the same details for admin user to manually verify the applicant
+4. Once the manual verification is success, admin will acknowledge the verification and will click on download PDF button. Admin UI will send request to the download PDF API with RID
+5. Request with RID will be sent to PDF card service to retrieve the datashare URL of the PDF card file
+6. PDFCard service will hash search in database to find the datashare URL to the requested RID. But this step is optional if the datashare URL can be formed using the RID and other details without connecting to database which can help with performance improvement.
+7. Request will be sent to datashare service to download the PDF card file
+8. The PDF file will be streamed back to the admin UI to complete the flow
