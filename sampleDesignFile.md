@@ -6,16 +6,16 @@
   <img  src="https://user-images.githubusercontent.com/9315119/161994052-4ee8eb98-38e2-4319-864b-72fea61febce.png">
 </p>
 
-1. Idrepo will publish a websub event when an identity is created or updated to IDENTITY_CHANGED topic. This event will contain the registration Id / application Id responsible for the change, uin and the event sub type (created / updated).
-2. PDFCard service will subscribe to this IDENTITY_CHANGED topic and will receive the event. Then a request to credential request generator with this UIN and credential type as PDFCard is sent.
-3. UIN received in the event is hashaed and the combination of UIN hash and request id received from the credential request generator response is stored in the database.
+1. Idrepo will publish a websub event when an identity is created or updated to IDENTITY_CHANGED topic. This event will contain the registration Id / application Id responsible for the change, UIN salted hash and the event sub type (created / updated).
+2. PDFCard service will subscribe to this IDENTITY_CHANGED topic and will receive the event. Then a request to credential request generator with this RID and credential type as VC is sent.
+3. RID with the UIN salted hash received in the event and the request id received from the credential request generator response is stored in the database.
 4. Credential request generator service will store the request in its database and the batch job will forward the request to credential service
-5. Credentail service will create a encrypted verifiable credentail based on the configured policy for the UIN and will store it in datashare service
+5. Credentail service will create a encrypted verifiable credentail based on the configured policy for the RID and will store it in datashare service
 6. The datashare URL return from datashare service along with the request id is then published as a websub event to the PDF Card service specific topic in websub
 7. Websub will deliver the event to the PDF card service 
 8. PDF card service will use the datashare URL to download the encrypted verifiable credential, will decrypt the same and verify
 9. PDF card service will use the verifiable credentail to create the password protected PDF file based on configured PDF template and will upload the same to datashare service without partner encryption. This template will mostly match the print template used by the country. The password used for pdf protection will be year of birth of the applicant.
-10. The datashare PDF file URL received through upload is then saved into the DB for the same request id
+10. The datashare PDF file URL received through upload is then saved into the DB for the same request id and RID
 11. The PDF file URL along with request id and status as STORED is published as a websub event to the CREDENTIAL_STATUS_UPDATE topic
 12. Websub delivers the event to the credential request generator service and the status with datashare URL is updated to the database.
 
