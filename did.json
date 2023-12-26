@@ -1,0 +1,29 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/jws-2020/v1"
+  ],
+  "id": "did:web:api.dev.mosip.net:.well-known",
+  "verificationMethod": [
+    {
+      "id": "did:web:api.dev.mosip.net:.well-known#key-0",
+      "type": "JsonWebKey2020",
+      "controller": "did:web:api.dev.mosip.net:.well-known",
+      "publicKeyJwk": {
+        "kty": "EC",
+        "crv": "secp256k1",
+        "x": "TFQm4WTMUm7SKDrQ8HfqtYyTTu5WfPmslUyhVZrST3M",
+        "y": "mrJHgaIkP5rfvqurDwHMAwQfHx9MQvId_bK8b62Ktv0"
+      }
+    }
+  ],
+  "authentication": [
+    "did:web:api.dev.mosip.net:.well-known#key-0"
+  ],
+  "assertionMethod": [
+    "did:web:api.dev.mosip.net:.well-known#key-0"
+  ],
+  "keyAgreement": [
+    "did:web:api.dev.mosip.net:.well-known#key-0"
+  ]
+}
