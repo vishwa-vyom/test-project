@@ -3,12 +3,12 @@
     "https://www.w3.org/ns/did/v1",
     "https://w3id.org/security/suites/jws-2020/v1"
   ],
-  "id": "did:web:api.dev.mosip.net:.well-known",
+  "id": "did:web:vishwa-vyom.github.io:test-project",
   "verificationMethod": [
     {
-      "id": "did:web:api.dev.mosip.net:.well-known#key-0",
+      "id": "did:web:vishwa-vyom.github.io:test-project#key-0",
       "type": "JsonWebKey2020",
-      "controller": "did:web:api.dev.mosip.net:.well-known",
+      "controller": "did:web:vishwa-vyom.github.io:test-project",
       "publicKeyJwk": {
         "kty": "EC",
         "crv": "secp256k1",
@@ -18,12 +18,12 @@
     }
   ],
   "authentication": [
-    "did:web:api.dev.mosip.net:.well-known#key-0"
+    "did:web:vishwa-vyom.github.io:test-project#key-0"
   ],
   "assertionMethod": [
-    "did:web:api.dev.mosip.net:.well-known#key-0"
+    "did:web:vishwa-vyom.github.io:test-project#key-0"
   ],
   "keyAgreement": [
-    "did:web:api.dev.mosip.net:.well-known#key-0"
+    "did:web:vishwa-vyom.github.io:test-project#key-0"
   ]
 }
