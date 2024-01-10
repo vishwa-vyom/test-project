@@ -4,7 +4,7 @@
       "@protected":true,
       "id":"@id",
       "type":"@type",
-      "schema": "http://schema.org/",
+      "schema": "https://schema.org/",
       "InsuranceCredential":{
          "@id":"https://vishwa-vyom.github.io/test-project/insurance-context.json#InsuranceCredential"
       },
